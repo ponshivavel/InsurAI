@@ -1,0 +1,166 @@
+
+ *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5eded;
+  color: #c37373;
+  line-height: 1.6;
+}
+
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Left section - Signup form */
+.left {
+  flex: 1;
+  max-width: 400px;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
+  text-align: center;
+}
+
+.logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 2px;
+}
+
+.left h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.left h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #34495e;
+}
+
+.left p {
+  margin-bottom: 20px;
+  color: #7f8c8d;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.sign-up-btn {
+  padding: 12px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sign-up-btn:hover {
+  background-color: #2980b9;
+}
+
+.login-text {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login-text a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.login-text a:hover {
+  text-decoration: underline;
+}
+
+
+.right {
+  flex: 1;
+  max-width: 400px;
+  padding: 40px;
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-left: 20px;
+}
+
+.right h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.right p {
+  margin-bottom: 130px;
+  font-size: 1.1rem;
+}
+
+
+.coverage-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.coverage-item {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.coverage-item span {
+  margin-left: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .left, .right {
+    margin: 10px 0;
+    max-width: none;
+  }
+
+  .left {
+    margin-right: 0;
+  }
+
+  .right {
+    margin-left: 0;
+  }
+}
