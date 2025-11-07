@@ -1,0 +1,211 @@
+/* --- Global Reset & Body Styles (Adopted from your provided index.css) --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f6f9; /* Retained light grey background for better contrast */
+  color: #333; /* Standard dark color for readability */
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+
+/* --- Main App Container (Using .container from your new styles, adapted for two panels) --- */
+.container {
+  display: flex;
+  max-width: 1200px; /* Max width for desktop view */
+  width: 90%; /* Responsive width */
+  min-height: 600px;
+  border-radius: 12px;
+  overflow: hidden; /* Important for containing children with border-radius */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+  background-image: url('./backgroundlogin.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* --- Left Panel (Login Form - Mapped to .left) --- */
+.left {
+  flex: 1;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-width: 350px; /* Ensure form is not too narrow */
+}
+
+.logo {
+  width: 350px; /* Adjusted size */
+  height: auto;
+  margin-bottom: 2px;
+}
+
+.left h1 {
+  font-size: 2rem;
+  margin-bottom: 5px;
+  color: #2c3e50;
+}
+
+/* --- Input and Select Styles (Combined and refined) --- */
+input[type="text"], input[type="password"], input[type="email"], select {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px; 
+  font-size: 1rem;
+  width: 100%;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  color: #333;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+}
+
+/* --- Button Styles (Combined .sign-up-btn and generic button) --- */
+button, .sign-up-btn {
+  background-color: #3498db;
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+  width: 100%;
+  margin-top: 5px;
+}
+
+button:hover, .sign-up-btn:hover {
+  background-color: #2980b9; /* Darker blue for better contrast/hover effect */
+  transform: translateY(-1px);
+}
+
+.login-text {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login-text a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-text a:hover {
+  text-decoration: underline;
+}
+
+/* --- Right Panel (Info/Welcome - Mapped to .right) --- */
+.right {
+  flex: 1;
+  padding: 40px;
+  color: #fff;
+  position: relative; /* Needed for the overlay */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* --- BACKGROUND IMAGE STYLES (INJECTED) --- */
+  background-image: url('./ai.png');
+  background-size: contain;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  z-index: 1; 
+}
+
+/* Overlay for the background image (INJECTED) */
+.right::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 134, 193, 0.75); /* Use your primary blue with transparency */
+  z-index: 0;
+}
+
+/* Ensure all content inside the panel has z-index > 0 */
+.right > * {
+  position: relative;
+  z-index: 2;
+}
+
+.right h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.right p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.coverage-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.coverage-item {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+
+/* --- NEW: Social Login Separator/Section Styling (INJECTED) --- */
+.social-login-section {
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.or-separator {
+    color: #95a5a6;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+
+/* --- Responsive Design for Mobile --- */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stacks panels vertically */
+    width: 95%;
+    min-height: auto;
+    box-shadow: none; /* Remove shadow on mobile for a cleaner look */
+  }
+
+  .right {
+    display: none; /* Hide the info panel on small screens to prioritize the login form */
+  }
+
+  .left {
+    padding: 30px 20px;
+    margin: 0;
+    max-width: none;
+  }
+}

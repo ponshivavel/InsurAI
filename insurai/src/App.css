@@ -1,0 +1,320 @@
+
+.dashboard-fullscreen {
+  width: 100vw;
+  height: 100vh;
+  background-color: #0969e5;
+  overflow: auto;
+  font-family: 'Inter', sans-serif;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 35px;
+  background: linear-gradient(90deg, #1e3a8a, #2563eb);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border-bottom: 3px solid #60a5fa;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.dashboard-header h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.profile-menu {
+  position: relative;
+}
+
+.profile-menu .profile-btn {
+  background-color: #ffffff22;
+  color: #fff;
+  border: 1px solid #ffffff44;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.profile-menu .profile-btn:hover {
+  background-color: #ffffff33;
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  min-width: 170px;
+  overflow: hidden;
+}
+
+.profile-dropdown button {
+  width: 100%;
+  padding: 12px 18px;
+  background: none;
+  border: none;
+  color: #333;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile-dropdown button:hover {
+  background-color: #f1f5f9;
+}
+
+/* Dashboard Content */
+.dashboard-main {
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+}
+
+/* Dashboard background */
+.dashboard-main {
+  background-image: url('./backgroundlogin.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Dashboard Section Containers */
+.dashboard-section {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  margin-bottom: 25px;
+  width: 100%;
+  max-width: 850px;
+  text-align: left;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dashboard-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Section Title */
+.dashboard-section h3 {
+  margin-bottom: 15px;
+  color: #1e3a8a;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border-left: 5px solid #2563eb;
+  padding-left: 10px;
+}
+
+/* Text Styles */
+.dashboard-section p {
+  color: #334155;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Cards Inside Sections */
+.policy-card,
+.payment-reminder,
+.claim-status {
+  background-color: #f9fafc;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: 1px solid #e5e7eb;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.policy-card:hover,
+.payment-reminder:hover,
+.claim-status:hover {
+  background-color: #eef4ff;
+  transform: translateY(-3px);
+}
+
+/* Buttons */
+.action-btn,
+.payment-btn,
+.download-btn,
+.profile-btn {
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Primary Buttons */
+.action-btn {
+  background-color: #2563eb;
+  color: #fff;
+}
+
+.action-btn:hover {
+  background-color: #1e40af;
+}
+
+/* Payment Buttons */
+.payment-btn {
+  background-color: #10b981;
+  color: #fff;
+}
+
+.payment-btn:hover {
+  background-color: #059669;
+}
+
+/* Download Buttons */
+.download-btn {
+  background-color: #64748b;
+  color: #fff;
+}
+
+.download-btn:hover {
+  background-color: #475569;
+}
+
+/* Layout for Action and Payment Options */
+.policy-actions,
+.payment-options,
+.profile-section {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Loading and Error States */
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1.2rem;
+    color: #007bff;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    padding: 20px;
+    background-color: #ffe6e6;
+    border: 1px solid #ff9999;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.retry-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.retry-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Profile Styles */
+.profile-content {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.profile-info {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.profile-info p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.edit-btn, .cancel-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.edit-btn:hover, .cancel-btn:hover {
+    background-color: #218838;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+}
+
+.cancel-btn:hover {
+    background-color: #c82333;
+}
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-main {
+    padding: 20px 10px;
+  }
+
+  .dashboard-section {
+    padding: 20px;
+  }
+
+  .dashboard-header h2 {
+    font-size: 1.3rem;
+  }
+}
