@@ -10,11 +10,7 @@ body {
   background-color: #f4f6f9; /* Retained light grey background for better contrast */
   color: #333; /* Standard dark color for readability */
   line-height: 1.6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
-  padding: 20px;
 }
 
 
@@ -76,7 +72,7 @@ input:focus, select:focus {
   box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
 }
 
-/* --- Button Styles (Combined .sign-up-btn and generic button) --- */
+
 button, .sign-up-btn {
   background-color: #3498db;
   color: #fff;
@@ -92,7 +88,7 @@ button, .sign-up-btn {
 }
 
 button:hover, .sign-up-btn:hover {
-  background-color: #2980b9; /* Darker blue for better contrast/hover effect */
+  background-color: #2980b9; 
   transform: translateY(-1px);
 }
 
@@ -111,7 +107,7 @@ button:hover, .sign-up-btn:hover {
   text-decoration: underline;
 }
 
-/* --- Right Panel (Info/Welcome - Mapped to .right) --- */
+
 .right {
   flex: 1;
   padding: 40px;
