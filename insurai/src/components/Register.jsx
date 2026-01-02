@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
-import '../App.css';
+import './Register.css';
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -41,65 +41,71 @@ const Register = () => {
     };
 
     return (
-        <div className="container">
-            <div className="left">
-                <img src={logo} alt="InsurAI Logo" className="logo" />
-                <h1>Sign Up</h1>
-                {error && <p style={{ color: 'red' }}>{error}</p>}
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Full Name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                    />
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        value={formData.password}
-                        onChange={handleInputChange}
-                        required
-                    />
-                    <input
-                        type="password"
-                        name="confirmPassword"
-                        placeholder="Confirm Password"
-                        value={formData.confirmPassword}
-                        onChange={handleInputChange}
-                        required
-                    />
-                    <button type="submit" className="sign-up-btn" disabled={loading}>
-                        {loading ? 'Signing up...' : 'Sign Up'}
-                    </button>
-                </form>
-                <div className="login-text">
-                    <p>Already have an account? <a href="#" onClick={() => navigate('/login')}>Log In</a></p>
+        <div className="register-page">
+            <div className="register-card">
+                <div className="register-left">
+                    <img src={logo} alt="InsurAI Logo" className="register-logo" />
+                    <h1 className="register-heading">Sign Up</h1>
+                    {error && <p className="register-error">{error}</p>}
+                    <form onSubmit={handleSubmit} className="register-form">
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Full Name"
+                            value={formData.name}
+                            onChange={handleInputChange}
+                            className="register-input"
+                            required
+                        />
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            className="register-input"
+                            required
+                        />
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                            value={formData.password}
+                            onChange={handleInputChange}
+                            className="register-input"
+                            required
+                        />
+                        <input
+                            type="password"
+                            name="confirmPassword"
+                            placeholder="Confirm Password"
+                            value={formData.confirmPassword}
+                            onChange={handleInputChange}
+                            className="register-input"
+                            required
+                        />
+                        <button type="submit" className="register-btn" disabled={loading}>
+                            {loading ? 'Signing up...' : 'Sign Up'}
+                        </button>
+                    </form>
+                    <div className="register-login-link">
+                        <p>Already have an account? <a href="#" onClick={() => navigate('/login')}>Log In</a></p>
+                    </div>
                 </div>
-            </div>
-            <div className="right">
-                <h2>Welcome to InsurAI</h2>
-                <h3>ABOUT US</h3>
-                <p>Welcome to InsureAI, your trusted partner for comprehensive insurance solutions in the digital age...</p>
-                <h4>Our Insurance Offerings:</h4>
-                <div className="coverage-list">
-                    <div className="coverage-item">✓ Health Insurance    ✓ Corporate Solutions</div>
-                    <div className="coverage-item">✓ Life Insurance    ✓ Auto Insurance</div>
-                    <div className="coverage-item">✓ Home Insurance    ✓ Business Insurance</div>
-                    <div className="coverage-item">✓ Vehicle Insurance ✓ Property Insurance</div>
-                    <div className="coverage-item">✓ Liability Insurance ✓ Travel Insurance</div>
+                <div className="register-right">
+                    <h2 className="register-welcome-heading">Welcome to InsurAI</h2>
+                    <h3 className="register-about-subheading">ABOUT US</h3>
+                    <p className="register-about-paragraph">Welcome to InsureAI, your trusted partner for comprehensive insurance solutions in the digital age...</p>
+                    <h4>Our Insurance Offerings:</h4>
+                    <div className="register-coverage-list">
+                        <div className="register-coverage-item">✓ Health Insurance    ✓ Corporate Solutions</div>
+                        <div className="register-coverage-item">✓ Life Insurance    ✓ Auto Insurance</div>
+                        <div className="register-coverage-item">✓ Home Insurance    ✓ Business Insurance</div>
+                        <div className="register-coverage-item">✓ Vehicle Insurance ✓ Property Insurance</div>
+                        <div className="register-coverage-item">✓ Liability Insurance ✓ Travel Insurance</div>
+                    </div>
+                    <p className="register-company-context">InsurAI Corporate Policy - Protecting Businesses Worldwide</p>
                 </div>
-                <p className="company-context">InsurAI Corporate Policy - Protecting Businesses Worldwide</p>
             </div>
         </div>
     );

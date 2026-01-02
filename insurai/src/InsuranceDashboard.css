@@ -1,0 +1,36 @@
+/* Responsive styles for InsuranceDashboard */
+
+@media (max-width: 1024px) {
+    /* Tablet: Sidebar collapses */
+    .sidebar {
+        width: 0;
+        overflow: hidden;
+    }
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 375px) {
+    /* Mobile: Cards stack vertically */
+    .dashboard-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .header {
+        padding: 0 16px;
+    }
+    .header .logo-text {
+        font-size: 16px;
+    }
+    .header .welcome-text {
+        font-size: 16px;
+    }
+    .sidebar {
+        width: 0;
+        overflow: hidden;
+    }
+    .main-content {
+        margin-left: 0;
+        padding: 16px;
+    }
+}

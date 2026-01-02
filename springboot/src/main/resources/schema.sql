@@ -13,3 +13,13 @@ CREATE TABLE IF NOT EXISTS user_roles (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     PRIMARY KEY (user_id, roles)
 );
+
+-- Create appointments table
+CREATE TABLE IF NOT EXISTS appointments (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    type VARCHAR(255) NOT NULL,
+    date_time DATETIME NOT NULL,
+    notes VARCHAR(500),
+    status VARCHAR(255) NOT NULL
+);

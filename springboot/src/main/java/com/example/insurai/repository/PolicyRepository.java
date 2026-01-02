@@ -8,3 +8,4 @@ import org.springframework.stereotype.Repository;
 public interface PolicyRepository extends JpaRepository<Policy, Long> {
     // Custom query methods can be added here if needed
 }
+

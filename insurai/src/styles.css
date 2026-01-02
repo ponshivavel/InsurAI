@@ -1,0 +1,464 @@
+/* CSS Variables for colors and spacing */
+:root {
+  --background-color: #F5F7FA;
+  --header-bg: #2f5d7c;
+  --sidebar-bg: #2f5d7c;
+  --card-bg: #EEF3F7;
+  --text-color: #1F2D3D;
+  --text-white: #FFFFFF;
+  --hover-bg: #355A72;
+  --approved-color: #2E8B57;
+  --pending-color: #D4A017;
+  --shadow: 0px 6px 16px rgba(0, 0, 0, 0.08);
+  --border-radius: 16px;
+  --border-radius-button: 10px;
+  --font-family: Inter, system-ui, sans-serif;
+  --header-height: 64px;
+  --sidebar-width: 250px;
+  --main-padding: 24px;
+  --card-padding: 24px;
+  --sidebar-padding: 24px 16px;
+  --header-padding: 0 24px;
+  --grid-gap: 24px;
+  --menu-item-height: 44px;
+  --button-height: 48px;
+  --gap-icon-text: 12px;
+  --gap-buttons: 12px;
+  --margin-bottom-title: 24px;
+  --margin-bottom-menu: 16px;
+}
+
+/* Global styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: 1.5;
+  overflow: auto;
+}
+
+/* App Container - Full Width Layout */
+.app-container {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header styles - Full Width */
+.app-header {
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--header-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--header-padding);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-image {
+  width: 32px;
+  height: 32px;
+}
+
+.logo-text {
+  color: var(--text-white);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.logo-subtext {
+  color: var(--text-white);
+  font-weight: 400;
+  font-size: 12px;
+  margin-top: -4px;
+}
+
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-white);
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.header-right {
+  display: flex;
+  gap: 16px;
+}
+
+.header-icon {
+  width: 24px;
+  height: 24px;
+  background-color: var(--text-white);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Main Layout - Flex based */
+.app-main {
+  display: flex;
+  width: 100%;
+  margin-top: var(--header-height);
+  min-height: calc(100vh - var(--header-height));
+}
+
+/* Sidebar styles - Fixed width */
+.sidebar {
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--header-height));
+  background-color: var(--sidebar-bg);
+  color: var(--text-white);
+  padding: var(--sidebar-padding);
+  position: fixed;
+  left: 0;
+  top: var(--header-height);
+  overflow-y: auto;
+}
+
+
+.sidebar-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: var(--margin-bottom-title);
+  color: var(--text-white);
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  margin-bottom: var(--margin-bottom-menu);
+  padding: 12px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-icon-text);
+  height: var(--menu-item-height);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.menu-item:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Main content styles - Flexible width */
+.main-content {
+  flex: 1;
+  padding: var(--main-padding);
+  background-color: var(--background-color);
+  min-height: calc(100vh - var(--header-height));
+  overflow-y: auto;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--grid-gap);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card styles */
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: var(--card-padding);
+  box-shadow: var(--shadow);
+}
+
+.card-full-width {
+  grid-column: 1 / -1;
+}
+
+.card-title {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.quote-text {
+  margin: 0;
+  font-size: 16px;
+}
+
+.policy-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.payment-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.claim-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.status-approved {
+  color: var(--approved-color);
+  font-weight: 600;
+}
+
+.status-pending {
+  color: var(--pending-color);
+  font-weight: 600;
+}
+
+.payment-gateway {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.button-row {
+  display: flex;
+  gap: var(--gap-buttons);
+  justify-content: center;
+}
+
+.payment-button {
+  background-color: var(--header-bg);
+  color: var(--text-white);
+  border: none;
+  border-radius: var(--border-radius-button);
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  height: var(--button-height);
+  flex: 1;
+}
+
+/* Floating AI Assist Button */
+.floating-ai-assist {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.ai-assist-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  background: transparent;
+}
+
+.ai-assist-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.ai-assist-button.listening {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+  }
+}
+
+/* Payment History Table Styles */
+.payment-history-table {
+  overflow-x: auto;
+}
+
+.payment-history-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.payment-history-table th,
+.payment-history-table td {
+  padding: 12px 8px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 14px;
+}
+
+.payment-history-table th {
+  background-color: var(--header-bg);
+  color: var(--text-white);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.payment-history-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Insurance Plans Grid Styles */
+.insurance-plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.plan-item {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plan-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.plan-item h4 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.learn-more-button {
+  background-color: var(--header-bg);
+  color: var(--text-white);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.learn-more-button:hover {
+  background-color: var(--hover-bg);
+}
+
+.new-policy-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color);
+  font-style: italic;
+}
+
+/* Plan Page Scrollable Content Area */
+.plan-page {
+  margin-top: 70px;                /* below header */
+  height: calc(100vh - 70px);
+  overflow-y: auto;                /* ✅ ONLY THIS SCROLLS */
+  padding: 30px;
+  background: #f4f8fb;
+}
+
+/* Plan Card Styles */
+.plan-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+/* Plan Actions Button Layout */
+.plan-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.plan-actions button {
+  flex: 1;
+  height: 44px;
+  border-radius: 10px;
+  background: #3a97d4;
+  color: white;
+  font-weight: 600;
+  border: none;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 0;
+    overflow: hidden;
+  }
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .button-row {
+    flex-direction: column;
+  }
+  .payment-button {
+    width: 100%;
+  }
+  .header {
+    padding: 0 16px;
+  }
+  .company-name {
+    font-size: 16px;
+  }
+  .welcome-text {
+    font-size: 16px;
+  }
+  .insurance-plans-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .payment-history-table {
+    font-size: 12px;
+  }
+  .payment-history-table th,
+  .payment-history-table td {
+    padding: 8px 4px;
+  }
+}

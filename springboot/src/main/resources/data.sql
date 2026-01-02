@@ -1,6 +1,4 @@
--- Insert initial data into users table
--- Note: Passwords should be hashed, but for initial data, we'll insert a hashed version of 'admin'
--- In a real scenario, use BCryptPasswordEncoder to hash passwords
+@getfrom
 
 INSERT INTO users (email, password, name) VALUES
 ('admin@admin.com', '$2a$10$exampleHashedPasswordForAdmin', 'Admin User');

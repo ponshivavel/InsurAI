@@ -1,119 +1,153 @@
 import React from 'react';
+import Header from '../components/Header';
+import Sidebar from '../components/Sidebar';
 import Card from '../components/Card';
-import VoiceRecognition from '../components/VoiceRecognition';
 
-const Dashboard = ({ onNavigateTo }) => {
+const Dashboard = () => {
+    const paymentHistoryData = [
+        {
+            transactionNo: 'TXN001',
+            date: '2024-11-15',
+            time: '10:30 AM',
+            premiumMode: 'Monthly',
+            sumAssured: '$50,000',
+            instDue: 'Nov 2024',
+            totalPremium: '$150',
+            lateFee: '$0',
+            gst: '$13.50',
+            branchAgency: 'BR001'
+        },
+        {
+            transactionNo: 'TXN002',
+            date: '2024-11-20',
+            time: '2:15 PM',
+            premiumMode: 'Quarterly',
+            sumAssured: '$100,000',
+            instDue: 'Nov 2024',
+            totalPremium: '$200',
+            lateFee: '$5',
+            gst: '$27.00',
+            branchAgency: 'BR002'
+        }
+    ];
+
     return (
-        <main className="app-main">
-            <div className="main-content">
-                <div className="dashboard-grid">
-                    {/* Card 1 — Quote (Top Left) */}
-                    <Card>
-                        <p className="quote-text">
-                            Plant today — because tomorrow your family will breathe from it.
-                        </p>
-                    </Card>
+        <div className="app-container">
+            <Header />
+            <div className="app-main">
+                <Sidebar />
+                <main className="main-content">
+                    <div className="dashboard-grid">
+                        {/* Quote Card */}
+                        <Card>
+                            <div className="quote-card">
+                                <p className="quote-text">
+                                    Plant today — because tomorrow your family will breathe from it.
+                                </p>
+                            </div>
+                        </Card>
 
-                    {/* Card 2 — Policy Summary (Top Right) */}
-                    <Card title="Policy Summary">
-                        <div className="policy-row">
-                            <span className="policy-label">Active Policies:</span>
-                            <strong className="policy-value">2</strong>
-                        </div>
-                        <div className="policy-row">
-                            <span className="policy-label">Next Expiry:</span>
-                            <strong className="policy-value">2024-12-31</strong>
-                        </div>
-                        <div className="policy-row">
-                            <span className="policy-label">Coverage:</span>
-                            <strong className="policy-value">Comprehensive</strong>
-                        </div>
-                    </Card>
+                        {/* Policy Summary Card */}
+                        <Card>
+                            <h3 className="card-title">Policy Summary</h3>
+                            <div className="policy-row">
+                                <span>Active Policies:</span>
+                                <span className="policy-value">2</span>
+                            </div>
+                            <div className="policy-row">
+                                <span>Next Expiry:</span>
+                                <span className="policy-value">2024-12-31</span>
+                            </div>
+                            <div className="policy-row">
+                                <span>Coverage:</span>
+                                <span className="policy-value">Comprehensive</span>
+                            </div>
+                        </Card>
 
-                    {/* Card 3 — Upcoming Payments (Middle Left) */}
-                    <Card title="Upcoming Payments">
-                        <div className="policy-row">
-                            <span className="policy-label">Health Insurance</span>
-                            <span className="policy-value">Due 2024-11-15 – $150</span>
-                        </div>
-                        <div className="policy-row">
-                            <span className="policy-label">Car Insurance</span>
-                            <span className="policy-value">Due 2024-11-20 – $200</span>
-                        </div>
-                    </Card>
+                        {/* Upcoming Payments Card */}
+                        <Card>
+                            <h3 className="card-title">Upcoming Payments</h3>
+                            <div className="payment-row">
+                                <span>Health Insurance</span>
+                                <span className="payment-amount">Due 2024-11-15 — $150</span>
+                            </div>
+                            <div className="payment-row">
+                                <span>Car Insurance</span>
+                                <span className="payment-amount">Due 2024-11-20 — $200</span>
+                            </div>
+                        </Card>
 
-                    {/* Card 4 — Claims Status (Middle Right) */}
-                    <Card title="Claims Status">
-                        <div className="policy-row">
-                            <span className="policy-label">CLM001:</span>
-                            <span className="policy-value status-approved">Approved – $500</span>
-                        </div>
-                        <div className="policy-row">
-                            <span className="policy-label">CLM002:</span>
-                            <span className="policy-value status-pending">Pending – $300</span>
-                        </div>
-                    </Card>
+                        {/* Claims Status Card */}
+                        <Card>
+                            <h3 className="card-title">Claims Status</h3>
+                            <div className="claim-row">
+                                <span>CLM001</span>
+                                <span className="status-approved">Approved — $500</span>
+                            </div>
+                            <div className="claim-row">
+                                <span>CLM002</span>
+                                <span className="status-pending">Pending — $300</span>
+                            </div>
+                        </Card>
 
-                    {/* Card 5 — Premium Payment Gateway (Bottom, Full Width) */}
-                    <Card title="Premium Payment Gateway" className="payment-gateway">
-                        <div className="btn-group">
-                            <button className="btn">Pay via Card</button>
-                            <button className="btn">Pay via UPI</button>
-                            <button className="btn">Pay via Net Banking</button>
-                        </div>
-                    </Card>
+                        {/* Premium Payment Gateway Card */}
+                        <Card fullWidth={true}>
+                            <h3 className="card-title">Premium Payment Gateway</h3>
+                            <div className="payment-buttons">
+                                <button className="payment-btn">Pay via Card</button>
+                                <button className="payment-btn">Pay via UPI</button>
+                                <button className="payment-btn">Pay via Net Banking</button>
+                            </div>
+                        </Card>
 
-                    {/* Payment History Table (Full Width) */}
-                    <Card title="Payment History" className="payment-gateway">
-                        <div className="table-container">
-                            <table className="payment-table">
-                                <thead>
-                                    <tr>
-                                        <th>Transaction No</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Premium Mode</th>
-                                        <th>Sum Assured</th>
-                                        <th>Inst Due (From/To)</th>
-                                        <th>Total Premium</th>
-                                        <th>Late Fee</th>
-                                        <th>GST</th>
-                                        <th>Branch / Agency Code</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>TXN001</td>
-                                        <td>2024-11-01</td>
-                                        <td>10:30 AM</td>
-                                        <td>Card</td>
-                                        <td>$500,000</td>
-                                        <td>1/12</td>
-                                        <td>$1,250</td>
-                                        <td>$0</td>
-                                        <td>$225</td>
-                                        <td>BR001</td>
-                                    </tr>
-                                    <tr>
-                                        <td>TXN002</td>
-                                        <td>2024-10-01</td>
-                                        <td>2:15 PM</td>
-                                        <td>UPI</td>
-                                        <td>$300,000</td>
-                                        <td>1/12</td>
-                                        <td>$750</td>
-                                        <td>$25</td>
-                                        <td>$135</td>
-                                        <td>BR002</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </Card>
-                </div>
+                        {/* Payment History Table */}
+                        <Card fullWidth={true}>
+                            <h3 className="card-title">Payment History</h3>
+                            <div className="payment-history-card">
+                                <table className="payment-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Transaction No</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Premium Mode</th>
+                                            <th>Sum Assured</th>
+                                            <th>Inst Due (From/To)</th>
+                                            <th>Total Premium</th>
+                                            <th>Late Fee</th>
+                                            <th>GST</th>
+                                            <th>Branch / Agency Code</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {paymentHistoryData.map((row, index) => (
+                                            <tr key={index}>
+                                                <td>{row.transactionNo}</td>
+                                                <td>{row.date}</td>
+                                                <td>{row.time}</td>
+                                                <td>{row.premiumMode}</td>
+                                                <td>{row.sumAssured}</td>
+                                                <td>{row.instDue}</td>
+                                                <td>{row.totalPremium}</td>
+                                                <td>{row.lateFee}</td>
+                                                <td>{row.gst}</td>
+                                                <td>{row.branchAgency}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </Card>
+                    </div>
+                </main>
             </div>
-            <VoiceRecognition />
-        </main>
+
+            {/* AI Assistant Button */}
+            <button className="ai-assistant-btn">
+                <img src="/src/assets/aiassist.png" alt="AI Assistant" className="ai-assistant-icon" />
+                <span>AI</span>
+            </button>
+        </div>
     );
 };
 
