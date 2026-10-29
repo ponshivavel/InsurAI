@@ -12,7 +12,8 @@
 /* ===== Card Container ===== */
 .register-card {
   width: 1100px;
-  height: 600px;
+  max-width: 95vw;
+  max-height: 92vh;
   background: #ffffff;
   display: flex;
   border-radius: 16px;
@@ -23,29 +24,35 @@
 /* ===== Left Section (Form) ===== */
 .register-left {
   width: 50%;
-  padding: 40px;
+  padding: 30px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
 }
 
 .register-logo {
-  width: 140px;
-  margin-bottom: 30px;
+  width: 130px;
+  margin-bottom: 12px;
 }
 
 .register-heading {
-  font-size: 32px;
-  font-weight: 600;
-  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
   color: #0d6efd;
 }
 
 /* ===== Error ===== */
 .register-error {
   color: #dc2626;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  padding: 8px 12px;
+  border-radius: 6px;
   margin-bottom: 12px;
-  font-size: 14px;
+  font-size: 13px;
+  width: 100%;
 }
 
 /* ===== Form ===== */
@@ -55,12 +62,14 @@
 
 .register-input {
   width: 100%;
-  height: 48px;
-  padding: 0 16px;
+  height: 42px;
+  padding: 0 14px;
   border-radius: 8px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #cbd5e1;
   font-size: 14px;
-  margin-bottom: 16px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
 }
 
 .register-input:focus {
