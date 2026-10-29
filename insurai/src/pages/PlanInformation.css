@@ -1,0 +1,287 @@
+/* Plan Information Page Styles */
+
+.plan-information-page {
+    min-height: 100vh;
+    background-color: #f4f7fa;
+}
+
+/* Header Styles */
+.plan-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background-color: #234f70;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.logo-text {
+    color: white;
+}
+
+.logo-main {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.logo-sub {
+    font-size: 10px;
+    opacity: 0.8;
+    line-height: 1;
+}
+
+.header-center {
+    flex: 1;
+    text-align: center;
+}
+
+.page-title {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.back-button {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Main Content Styles */
+.plan-main-content {
+    padding: 100px 30px 30px; /* Top padding accounts for fixed header */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.plans-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Plan Card Styles */
+.plan-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Plan Details Styles */
+.plan-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.plan-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1f2933;
+    margin: 0;
+}
+
+.plan-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #1f2933;
+    min-width: 100px;
+}
+
+.info-value {
+    color: #6b7280;
+}
+
+.status-active {
+    color: #10b981;
+    font-weight: 600;
+}
+
+/* Plan Actions Styles */
+.plan-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.action-button {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-details {
+    background-color: #2f89c5;
+    color: white;
+}
+
+.view-details:hover {
+    background-color: #2b7db4;
+}
+
+.renew {
+    background-color: #2b7db4;
+    color: white;
+}
+
+.renew:hover {
+    background-color: #2563a0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .plan-header {
+        padding: 0 15px;
+        height: 60px;
+    }
+
+    .page-title {
+        font-size: 18px;
+    }
+
+    .logo-main {
+        font-size: 16px;
+    }
+
+    .logo-sub {
+        font-size: 8px;
+    }
+
+    .plan-main-content {
+        padding: 80px 15px 15px;
+    }
+
+    .plan-card {
+        padding: 15px;
+    }
+
+    .plan-title {
+        font-size: 20px;
+    }
+
+    .info-label {
+        min-width: 80px;
+        font-size: 14px;
+    }
+
+    .info-value {
+        font-size: 14px;
+    }
+
+    .action-button {
+        height: 44px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .plan-header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 15px;
+        gap: 10px;
+    }
+
+    .header-center {
+        order: -1;
+    }
+
+    .header-right {
+        align-self: flex-end;
+    }
+
+    .page-title {
+        font-size: 16px;
+    }
+
+    .plan-main-content {
+        padding: 120px 10px 10px;
+    }
+
+    .plan-card {
+        padding: 12px;
+    }
+
+    .plan-title {
+        font-size: 18px;
+    }
+
+    .info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .info-label {
+        min-width: auto;
+        font-size: 13px;
+    }
+
+    .info-value {
+        font-size: 13px;
+    }
+
+    .action-button {
+        height: 40px;
+        font-size: 13px;
+    }
+}

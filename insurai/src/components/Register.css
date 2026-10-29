@@ -1,0 +1,168 @@
+/* ===== Register Page Background ===== */
+.register-page {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #dff1fb, #4a90d9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+/* ===== Card Container ===== */
+.register-card {
+  width: 1100px;
+  height: 600px;
+  background: #ffffff;
+  display: flex;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Left Section (Form) ===== */
+.register-left {
+  width: 50%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-logo {
+  width: 140px;
+  margin-bottom: 30px;
+}
+
+.register-heading {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #0d6efd;
+}
+
+/* ===== Error ===== */
+.register-error {
+  color: #dc2626;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+/* ===== Form ===== */
+.register-form {
+  width: 100%;
+}
+
+.register-input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.register-input:focus {
+  outline: none;
+  border-color: #0d6efd;
+}
+
+/* ===== Button ===== */
+.register-btn {
+  width: 100%;
+  height: 48px;
+  background: #0d6efd;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.register-btn:hover {
+  background: #0b5ed7;
+}
+
+.register-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ===== Login Link ===== */
+.register-login-link {
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.register-login-link a {
+  color: #0d6efd !important;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ===== Right Section (Info Panel) ===== */
+.register-right {
+  width: 50%;
+  background: #3f7fc1;
+  padding: 50px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.register-welcome-heading {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.register-about-subheading {
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.register-about-paragraph {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.register-coverage-list {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.register-coverage-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.register-company-context {
+  font-size: 14px;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .register-card {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .register-left,
+  .register-right {
+    width: 100%;
+  }
+
+  .register-right {
+    text-align: center;
+  }
+}

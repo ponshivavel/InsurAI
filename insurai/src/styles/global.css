@@ -1,0 +1,378 @@
+:root {
+  --primary-bg: #f4f7fa;
+  --header-bg: #234e70;
+  --sidebar-bg: #3f6782;
+  --card-bg: #eaf2f8;
+  --text-primary: #1f2937;
+  --text-white: #ffffff;
+  --text-secondary: #4b5563;
+  --success-color: #1e8e3e;
+  --warning-color: #d97706;
+  --table-header-bg: #234e70;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --border-radius: 12px;
+  --border-radius-sm: 10px;
+  --border-radius-xs: 6px;
+  --font-family: Inter, Roboto, system-ui, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  line-height: 1.5;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Header Styles */
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 70px;
+  background-color: var(--header-bg);
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-placeholder {
+  width: 40px;
+  height: 40px;
+  background-color: var(--text-white);
+  border-radius: 8px;
+}
+
+.logo-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.logo-text {
+  color: var(--text-white);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.logo-subtext {
+  color: var(--text-white);
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.header-center {
+  flex: 1;
+  text-align: center;
+}
+
+.header-title {
+  color: var(--text-white);
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.header-right {
+  display: flex;
+  gap: 16px;
+}
+
+.header-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--text-white);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+/* Sidebar Styles */
+.app-sidebar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 260px;
+  height: calc(100vh - 70px);
+  background-color: var(--sidebar-bg);
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 999;
+}
+
+.sidebar-title {
+  color: var(--text-white);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.menu-items {
+  list-style: none;
+}
+
+.menu-item {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-white);
+  font-size: 15px;
+  border-radius: var(--border-radius-xs);
+  padding: 0 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.menu-item:hover {
+  background-color: #355A72;
+}
+
+.menu-item.active {
+  background-color: #355A72;
+}
+
+.menu-icon {
+  font-size: 16px;
+}
+
+/* Main Content Area */
+.app-main {
+  position: fixed;
+  top: 70px;
+  left: 260px;
+  right: 0;
+  bottom: 0;
+  background-color: var(--primary-bg);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.main-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 0;
+  padding: 24px;
+  box-shadow: none;
+  min-height: calc(100vh - 70px - 48px); /* Account for reduced padding */
+  width: 100%;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px;
+}
+
+/* Card Base Style */
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+/* Payment Gateway Card */
+.payment-gateway {
+  grid-column: 1 / -1;
+}
+
+.btn-group {
+  display: flex;
+  gap: 16px;
+}
+
+.btn {
+  height: 48px;
+  background-color: var(--header-bg);
+  color: var(--text-white);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  background-color: #1a3a5c;
+}
+
+/* Policy Rows */
+.policy-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.policy-row:last-child {
+  margin-bottom: 0;
+}
+
+.policy-label {
+  color: var(--text-secondary);
+}
+
+.policy-value {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Status Colors */
+.status-approved {
+  color: var(--success-color);
+}
+
+.status-pending {
+  color: var(--warning-color);
+}
+
+/* Quote Text */
+.quote-text {
+  font-size: 16px;
+  font-style: italic;
+  color: var(--text-primary);
+  text-align: center;
+  margin: 0;
+}
+
+/* Table Styles */
+.table-container {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.payment-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--card-bg);
+}
+
+.payment-table th {
+  background-color: var(--table-header-bg);
+  color: var(--text-white);
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  border: none;
+}
+
+.payment-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  color: var(--text-primary);
+}
+
+.payment-table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.payment-table tbody tr:hover {
+  background-color: #f3f4f6;
+}
+
+/* Floating AI Assistant for Voice Recognition */
+.floating-ai-assist {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1001;
+}
+
+.ai-assist-button {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ai-assist-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.ai-assist-button.listening {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+  }
+
+  .app-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .app-main {
+    margin-left: 0;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+
+  .btn-group .btn {
+    width: 100%;
+  }
+
+  .payment-table th,
+  .payment-table td {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .ai-assist-btn {
+    bottom: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+}
