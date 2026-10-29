@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import api from '../services/api';
 import logo from '../assets/logo.png';
-import ai from '../ai.png';
-import '../App.css';
+import './Login.css';
 
-const Login = () => {
+const Login = ({ onLogin }) => {
     const [formData, setFormData] = useState({
         email: 'admin@admin.com',
-        password: 'admin'
+        password: 'admin',
+        mode: 'user'
     });
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
@@ -27,68 +27,123 @@ const Login = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post('http://localhost:8080/api/auth/login', {
-                email: formData.email,
+            const response = await api.post('/auth/login', {
+                email: formData.email.trim(),
                 password: formData.password
             });
 
-            const { token, message } = response.data;
-            const user = { id: 1, name: 'Admin User', email: formData.email };
+            const { token } = response.data;
+            const user = {
+                name: formData.email.split('@')[0],
+                email: formData.email.trim(),
+                mode: formData.mode
+            };
+
             localStorage.setItem('authToken', token);
             localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('isAuthenticated', 'true');
+
+            if (onLogin) {
+                onLogin();
+            }
             navigate('/dashboard');
         } catch (err) {
-            setError('Invalid email or password');
             console.error('Login error:', err);
+            const msg = err.response?.data?.message || err.response?.data || 'Invalid email or password';
+            setError(typeof msg === 'string' ? msg : 'Login failed. Please check credentials.');
         } finally {
             setLoading(false);
         }
     };
 
     return (
-        <div className="container">
-            <div className="left">
-                <img src={logo} alt="InsurAI Logo" className="logo" />
-                <h1>Login</h1>
-                {error && <p style={{ color: 'red' }}>{error}</p>}
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        value={formData.password}
-                        onChange={handleInputChange}
-                        required
-                    />
-                    <button type="submit" className="sign-up-btn" disabled={loading}>
-                        {loading ? 'Logging in...' : 'Log In'}
-                    </button>
-                </form>
-                <div className="login-text">
-                    <p>Don't have an account? <a href="#" onClick={() => navigate('/register')}>Sign Up</a></p>
+        <div className="login-page">
+            <div className="login-card">
+                <div className="login-left">
+                    <img src={logo} alt="InsurAI Logo" className="login-logo" />
+                    <h1 className="login-heading">Sign In</h1>
+                    <p style={{ color: '#64748b', fontSize: '14px', marginBottom: '18px' }}>
+                        Access your InsurAI corporate policies and services
+                    </p>
+
+                    {error && <div className="login-error" style={{ marginBottom: '16px' }}>{error}</div>}
+
+                    <form onSubmit={handleSubmit} className="login-form">
+                        <label style={{ fontSize: '13px', fontWeight: '600', color: '#1e293b', textAlign: 'left' }}>Email Address</label>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="admin@admin.com"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            className="login-input"
+                            required
+                        />
+
+                        <label style={{ fontSize: '13px', fontWeight: '600', color: '#1e293b', textAlign: 'left' }}>Password</label>
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="••••••••"
+                            value={formData.password}
+                            onChange={handleInputChange}
+                            className="login-input"
+                            required
+                        />
+
+                        <div className="mode-selection" style={{ margin: '10px 0' }}>
+                            <label style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                <input
+                                    type="radio"
+                                    name="mode"
+                                    value="user"
+                                    checked={formData.mode === 'user'}
+                                    onChange={handleInputChange}
+                                />
+                                Corporate Client
+                            </label>
+                            <label style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                <input
+                                    type="radio"
+                                    name="mode"
+                                    value="admin"
+                                    checked={formData.mode === 'admin'}
+                                    onChange={handleInputChange}
+                                />
+                                Policy Administrator
+                            </label>
+                        </div>
+
+                        <button type="submit" className="login-btn" disabled={loading}>
+                            {loading ? 'Authenticating...' : 'Sign In to InsurAI'}
+                        </button>
+                    </form>
+
+                    <div className="login-signup-link">
+                        <p>Don't have an account? <a href="#" onClick={(e) => { e.preventDefault(); navigate('/register'); }}>Register here</a></p>
+                    </div>
                 </div>
-            </div>
-            <div className="right">
-                <h2>Welcome to InsurAI</h2>
-                <h3>ABOUT US</h3>
-                <p>Welcome to InsureAI, your trusted partner for comprehensive insurance solutions in the digital age...</p>
-                <h4>Our Insurance Offerings:</h4>
-                <div className="coverage-list">
-                    <div className="coverage-item">✓ Health Insurance    ✓ Corporate Solutions</div>
-                    <div className="coverage-item">✓ Life Insurance    ✓ Auto Insurance</div>
-                    <div className="coverage-item">✓ Home Insurance    ✓ Business Insurance</div>
-                    <div className="coverage-item">✓ Vehicle Insurance ✓ Property Insurance</div>
-                    <div className="coverage-item">✓ Liability Insurance ✓ Travel Insurance</div>
+
+                <div className="login-right">
+                    <h2 className="welcome-heading">InsurAI Enterprise</h2>
+                    <h3 className="about-subheading">INTELLIGENT RISK MANAGEMENT</h3>
+                    <p className="about-paragraph">
+                        Welcome to InsurAI, your next-generation platform for digital insurance portfolio management.
+                        We streamline policy administration, automated renewal scheduling, cashless claim assistance,
+                        and intelligent voice-driven navigation for modern businesses and individuals.
+                    </p>
+                    <div className="insurance-offerings">
+                        <div className="offering-item">✓ Corporate Health Shield</div>
+                        <div className="offering-item">✓ Executive Vehicle & Fleet</div>
+                        <div className="offering-item">✓ Commercial Cyber Liability</div>
+                        <div className="offering-item">✓ Business Continuity Insurance</div>
+                        <div className="offering-item">✓ Instant Cashless Claims Dispatch</div>
+                        <div className="offering-item">✓ Integrated Speech Navigation</div>
+                    </div>
+                    <p className="footer-text">
+                        <em>InsurAI — Secure &bull; Reliable &bull; AI-Powered</em>
+                    </p>
                 </div>
-                <p className="company-context">InsurAI - Your AI-Powered Insurance Partner - Protecting Businesses Worldwide</p>
             </div>
         </div>
     );

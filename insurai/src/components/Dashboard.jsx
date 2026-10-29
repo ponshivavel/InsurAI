@@ -71,8 +71,10 @@ const Dashboard = () => {
                     <button
                         className="profile-btn"
                         onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                        aria-label="User Profile Menu"
                     >
-                        👤 ≡
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <span style={{ fontSize: '13px', marginLeft: '6px' }}>Account</span>
                     </button>
                     {isProfileMenuOpen && (
                         <div className="profile-dropdown">
